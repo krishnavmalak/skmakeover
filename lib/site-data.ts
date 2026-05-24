@@ -25,7 +25,7 @@ export type PackageItem = {
 export const site = {
   brand: {
     name: 'SK Makeover',
-    domain: 'skmakeover.pages.dev',
+    domain: 'skmakeover',
     artist: 'Vidya Malak',
   },
   hero: {
