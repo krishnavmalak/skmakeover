@@ -2,6 +2,7 @@
 const nextConfig = {
   output: 'export',
   trailingSlash: true,
+  outputFileTracingRoot: __dirname,
   experimental: {
     devtoolSegmentExplorer: false,
   },
