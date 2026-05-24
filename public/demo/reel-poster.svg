@@ -1,0 +1,36 @@
+<svg width="1080" height="1920" viewBox="0 0 1080 1920" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1080" y2="1920" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFDF8"/>
+      <stop offset="0.45" stop-color="#F8F3EA"/>
+      <stop offset="1" stop-color="#EEE3D2"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(850 220) rotate(120) scale(390 390)">
+      <stop stop-color="#C7A56A" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#C7A56A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="panel" x1="180" y1="250" x2="900" y2="1460" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF9F1"/>
+      <stop offset="0.55" stop-color="#F4E8D0"/>
+      <stop offset="1" stop-color="#E3C899"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="26" stdDeviation="30" flood-color="#1F1B17" flood-opacity="0.14"/>
+    </filter>
+  </defs>
+  <rect width="1080" height="1920" fill="url(#bg)"/>
+  <circle cx="860" cy="220" r="300" fill="url(#glow)"/>
+  <circle cx="150" cy="1600" r="290" fill="#C7A56A" fill-opacity="0.08"/>
+  <rect x="110" y="120" width="860" height="1680" rx="78" fill="#FFFDF8" fill-opacity="0.44" stroke="#C7A56A" stroke-opacity="0.18" filter="url(#shadow)"/>
+  <rect x="165" y="180" width="750" height="1420" rx="64" fill="url(#panel)"/>
+  <circle cx="540" cy="720" r="220" fill="#FFFDF8" fill-opacity="0.72"/>
+  <circle cx="540" cy="686" r="116" fill="#E1CBA1" fill-opacity="0.76"/>
+  <path d="M404 816C436 738 489 698 540 698C591 698 644 738 676 816L734 1046C741 1073 721 1100 692 1100H388C359 1100 339 1073 346 1046L404 816Z" fill="#1F1B17" fill-opacity="0.10"/>
+  <path d="M340 1222C426 1168 491 1140 540 1140C589 1140 654 1168 740 1222" stroke="#C7A56A" stroke-opacity="0.72" stroke-width="14" stroke-linecap="round"/>
+  <path d="M382 506C460 444 620 444 698 506" stroke="#7E6B54" stroke-opacity="0.56" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="540" cy="720" r="78" fill="#FFFDF8" fill-opacity="0.5"/>
+  <circle cx="540" cy="720" r="92" fill="none" stroke="#FFF9F0" stroke-opacity="0.68" stroke-width="16"/>
+  <path d="M512 704L625 720L512 736V704Z" fill="#1F1B17" fill-opacity="0.88"/>
+  <text x="190" y="1600" fill="#1F1B17" font-family="Georgia, 'Times New Roman', serif" font-size="68">30-Second Bridal Reel</text>
+  <text x="190" y="1660" fill="#7E6B54" font-family="Arial, Helvetica, sans-serif" font-size="22" letter-spacing="4">SK MAKEOVER / DEMO PREVIEW</text>
+</svg>
