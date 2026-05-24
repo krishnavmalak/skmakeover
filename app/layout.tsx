@@ -17,7 +17,7 @@ const body = Manrope({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://skmakeover.pages.dev'),
+  metadataBase: new URL('https://skmakeover.pages'),
   title: {
     default: 'SK Makeover | Luxury Bridal Makeup Studio by Vidya Malak',
     template: '%s | SK Makeover',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: 'SK Makeover | Luxury Bridal Makeup Studio',
     description:
       'Minimal, elegant bridal artistry by Vidya Malak for high-end weddings, engagements, and pre-bridal prep.',
-    url: 'https://skmakeover.pages.dev',
+    url: 'https://skmakeover.pages',
     siteName: 'SK Makeover',
     locale: 'en_IN',
     type: 'website',
