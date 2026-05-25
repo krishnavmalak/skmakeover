@@ -1,29 +1,37 @@
+import Image from 'next/image';
 import { Container } from '@/components/ui/container';
 import { ButtonLink } from '@/components/ui/button-link';
 import { MobileMenu } from '@/components/mobile-menu';
-import { site } from '@/lib/site-data';
+import { getI18n, SupportedLanguage } from '@/lib/i18n/index';
 
-const navItems = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Portfolio', href: '#portfolio' },
-  // { label: 'Packages', href: '#packages' },
-  { label: 'Contact', href: '#contact' },
-];
+export function SiteHeader({ locale = 'en' }: { locale?: SupportedLanguage }) {
+  const i18n = getI18n(locale);
+  const navItems = [
+    { label: i18n.t('nav.home'), href: '#home' },
+    { label: i18n.t('nav.about'), href: '#about' },
+    { label: i18n.t('nav.portfolio'), href: '#portfolio' },
+    // { label: i18n.t('nav.packages'), href: '#packages' },
+    { label: i18n.t('nav.contact'), href: '#contact' },
+  ];
 
-export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-[rgba(248,243,234,0.84)] backdrop-blur-xl">
       <Container>
         <div className="flex items-center justify-between gap-4 py-4">
           <a href="#home" className="group min-w-0">
             <div className="flex items-center gap-3">
-              <span className="grid h-10 w-10 place-items-center rounded-full border border-champagne/30 bg-white/75 font-display text-lg text-champagne shadow-soft transition-transform duration-300 group-hover:-translate-y-0.5">
-                S
-              </span>
+              <div className="relative h-12 w-12 overflow-hidden rounded-full border border-champagne/30 shadow-soft transition-transform duration-300 group-hover:-translate-y-0.5">
+                <Image
+                  src="/images/logo.jpeg"
+                  alt={`${i18n.t('brand.name')} Logo`}
+                  fill
+                  sizes="45px"
+                  className="object-cover"
+                />
+              </div>
               <div className="min-w-0">
-                <p className="truncate font-display text-xl text-charcoal md:text-2xl">{site.brand.name}</p>
-                <p className="text-[0.68rem] uppercase tracking-[0.26em] text-champagne">Vidya Malak</p>
+                <p className="truncate font-display text-xl text-charcoal md:text-2xl">{i18n.t('brand.name')}</p>
+                <p className="text-[0.68rem] uppercase tracking-[0.26em] text-champagne">{i18n.t('brand.artist')}</p>
               </div>
             </div>
           </a>
@@ -38,12 +46,34 @@ export function SiteHeader() {
 
           <div className="flex items-center gap-3">
             <span className="hidden text-[0.68rem] uppercase tracking-[0.24em] text-charcoal/45 xl:inline">
-              {site.brand.domain}
+              {i18n.t('brand.domain')}
             </span>
+
+            <div className="flex items-center gap-1 rounded-full border border-line bg-white/50 p-1">
+              <a
+                href="/"
+                className={['px-2.5 py-1 text-[0.7rem] rounded-full transition-colors', locale === 'en' ? 'bg-white text-charcoal shadow-sm' : 'text-charcoal/60 hover:text-charcoal'].join(' ')}
+              >
+                EN
+              </a>
+              <a
+                href="/mr"
+                className={['px-2.5 py-1 text-[0.7rem] rounded-full transition-colors', locale === 'mr' ? 'bg-white text-charcoal shadow-sm' : 'text-charcoal/60 hover:text-charcoal'].join(' ')}
+              >
+                MR
+              </a>
+              <a
+                href="/kn"
+                className={['px-2.5 py-1 text-[0.7rem] rounded-full transition-colors', locale === 'kn' ? 'bg-white text-charcoal shadow-sm' : 'text-charcoal/60 hover:text-charcoal'].join(' ')}
+              >
+                KN
+              </a>
+            </div>
+
             <ButtonLink href="#contact" variant="accent" className="hidden px-4 py-2.5 text-sm lg:inline-flex">
-              Book Your Date
+              {i18n.t('nav.bookYourDate')}
             </ButtonLink>
-            <MobileMenu />
+            <MobileMenu locale={locale} />
           </div>
         </div>
       </Container>

@@ -28,7 +28,7 @@ export async function VerticalReelVideo({
         poster={mediaPoster}
         title={title}
         aspectClassName="aspect-[9/16]"
-        frameClassName="rounded-[2rem] border border-line bg-charcoal shadow-gilded"
+        frameClassName="rounded-[2rem] border border-line bg-charcoal shadow-md"
         mediaClassName="bg-charcoal"
         showIframeChromeMask={isInstagramUrl(src)}
       />

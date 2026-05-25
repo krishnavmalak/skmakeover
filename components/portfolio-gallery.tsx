@@ -3,7 +3,8 @@ import { MediaStage } from '@/components/media-stage';
 import { SectionHeading } from '@/components/ui/section-heading';
 import { resolveInstagramPreview } from '@/lib/instagram-preview';
 import { isInstagramUrl } from '@/lib/media-url';
-import { site, type PortfolioItem } from '@/lib/site-data';
+import type { PortfolioItem } from '@/lib/i18n/translations';
+import { getI18n } from '@/lib/i18n/index';
 
 const imageSizes = '(min-width: 1280px) 31vw, (min-width: 768px) 46vw, 100vw';
 
@@ -11,8 +12,10 @@ type ResolvedPortfolioItem = PortfolioItem & {
   showIframeChromeMask?: boolean;
 };
 
-export async function PortfolioGallery() {
-  const portfolio = site.portfolio as PortfolioItem[];
+export async function PortfolioGallery({ locale = 'en' }: { locale?: 'en' | 'mr' | 'kn' }) {
+  const i18n = getI18n(locale);
+  const portfolio = i18n.translations[locale].portfolio as PortfolioItem[];
+  
   const resolvedPortfolio = (await Promise.all(
     portfolio.map(async (item) => {
       if (item.mediaKind === 'iframe' && isInstagramUrl(item.mediaSrc)) {
@@ -39,7 +42,6 @@ export async function PortfolioGallery() {
         <SectionHeading
           eyebrow="Portfolio Gallery"
           title="A clean grid for bridal transformations that need to feel expensive at a glance."
-          description="Use the +/- controls to inspect detail. The gallery keeps the focus on the media itself with no outbound click-throughs or external labels."
         />
 
         <div className="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
@@ -49,7 +51,7 @@ export async function PortfolioGallery() {
             return (
               <article
                 key={item.title}
-                className="group overflow-hidden rounded-[1.75rem] border border-line bg-white/80 shadow-soft transition-transform duration-300 hover:-translate-y-1"
+                className="group overflow-hidden rounded-[4px] border border-line bg-white/80 shadow-md transition-transform duration-300 hover:-translate-y-1"
               >
                 <MediaStage
                   kind={item.mediaKind}
@@ -63,10 +65,12 @@ export async function PortfolioGallery() {
                   webpBase={item.mediaWebpBase}
                   showIframeChromeMask={item.showIframeChromeMask}
                 >
-                  <div className="bg-gradient-to-t from-charcoal/45 via-charcoal/10 to-transparent p-5">
-                    <span className="inline-flex rounded-full border border-white/20 bg-white/15 px-3 py-1 text-[0.65rem] uppercase tracking-[0.22em] text-white backdrop-blur-sm">
-                      {item.finish}
-                    </span>
+                  <div className="flex w-full flex-col justify-end bg-gradient-to-t from-charcoal/80 via-charcoal/30 to-transparent px-5 pb-5 pt-20">
+                    <div>
+                      <span className="inline-flex rounded-full border border-white/20 bg-white/15 px-3 py-1 text-[0.65rem] uppercase tracking-[0.22em] text-white backdrop-blur-sm shadow-sm">
+                        {item.finish}
+                      </span>
+                    </div>
                   </div>
                 </MediaStage>
 

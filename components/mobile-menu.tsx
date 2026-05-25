@@ -1,17 +1,19 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { getI18n } from '@/lib/i18n/index';
 
-const navItems = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Portfolio', href: '#portfolio' },
-  { label: 'Packages', href: '#packages' },
-  { label: 'Contact', href: '#contact' },
-];
-
-export function MobileMenu() {
+export function MobileMenu({ locale = 'en' }: { locale?: 'en' | 'mr' | 'kn' }) {
   const [open, setOpen] = useState(false);
+  const i18n = getI18n(locale);
+
+  const navItems = [
+    { label: i18n.t('nav.home'), href: '#home' },
+    { label: i18n.t('nav.about'), href: '#about' },
+    { label: i18n.t('nav.portfolio'), href: '#portfolio' },
+    // { label: i18n.t('nav.packages'), href: '#packages' },
+    { label: i18n.t('nav.contact'), href: '#contact' },
+  ];
 
   // Close on resize to lg
   useEffect(() => {
@@ -104,7 +106,7 @@ export function MobileMenu() {
             onClick={() => setOpen(false)}
             className="flex w-full items-center justify-center rounded-full bg-champagne px-5 py-3.5 text-sm font-medium text-charcoal shadow-[0_18px_40px_rgba(199,165,106,0.24)] transition-all duration-300 hover:bg-[#b99352]"
           >
-            Book Your Date
+            {i18n.t('nav.bookYourDate')}
           </a>
         </div>
       </nav>

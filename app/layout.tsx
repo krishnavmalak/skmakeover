@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
-import { Cormorant_Garamond, Manrope } from 'next/font/google';
+import { Cormorant_Garamond, Inter } from 'next/font/google';
 import './globals.css';
 
 const display = Cormorant_Garamond({
@@ -10,7 +10,7 @@ const display = Cormorant_Garamond({
   display: 'swap',
 });
 
-const body = Manrope({
+const body = Inter({
   subsets: ['latin'],
   variable: '--font-body',
   display: 'swap',
@@ -35,12 +35,21 @@ export const metadata: Metadata = {
     siteName: 'SK Makeover',
     locale: 'en_IN',
     type: 'website',
+    images: [
+      {
+        url: '/images/logo.jpeg',
+        width: 800,
+        height: 800,
+        alt: 'SK Makeover Logo',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'SK Makeover | Luxury Bridal Makeup Studio',
     description:
       'Minimal, elegant bridal artistry by Vidya Malak for premium bridal clients.',
+    images: ['/images/logo.jpeg'],
   },
   robots: {
     index: true,

@@ -1,9 +1,13 @@
 import { Container } from '@/components/ui/container';
 import { SectionHeading } from '@/components/ui/section-heading';
 import { ButtonLink } from '@/components/ui/button-link';
-import { site } from '@/lib/site-data';
+import { getI18n } from '@/lib/i18n/index';
+import type { PackageItem } from '@/lib/i18n/translations';
 
-export function ServicesPricing() {
+export function ServicesPricing({ locale = 'en' }: { locale?: 'en' | 'mr' | 'kn' }) {
+  const i18n = getI18n(locale);
+  const packages = i18n.translations[locale].packages as PackageItem[];
+
   return (
     <section id="packages" className="scroll-mt-28 py-20">
       <Container>
@@ -14,7 +18,7 @@ export function ServicesPricing() {
         />
 
         <div className="mt-10 grid gap-5 lg:grid-cols-3">
-          {site.packages.map((pkg) => (
+          {packages.map((pkg) => (
             <article
               key={pkg.name}
               className={[
@@ -72,7 +76,7 @@ export function ServicesPricing() {
                   variant={pkg.featured ? 'accent' : 'secondary'}
                   className="w-full py-3.5 text-base"
                 >
-                  Enquire for Availability
+                  {i18n.t('nav.bookYourDate')}
                 </ButtonLink>
               </div>
             </article>

@@ -1,56 +1,57 @@
 import { Container } from '@/components/ui/container';
 import { ButtonLink } from '@/components/ui/button-link';
-import { site } from '@/lib/site-data';
+import { getI18n } from '@/lib/i18n/index';
 
-const contactLinks = [
-  {
-    label: 'Phone',
-    value: site.contact.phoneDisplay,
-    href: site.contact.phoneHref,
-    external: false,
-  },
-  // {
-  //   label: 'Email',
-  //   value: site.contact.email,
-  //   href: site.contact.emailHref,
-  //   external: false,
-  // },
-  {
-    label: 'Instagram',
-    value: site.contact.instagram,
-    href: site.contact.instagramHref,
-    external: true,
-  },
-  {
-    label: 'YouTube',
-    value: site.contact.youtube,
-    href: site.contact.youtubeHref,
-    external: true,
-  },
-];
-
-export function FooterContact() {
+export function FooterContact({ locale = 'en' }: { locale?: 'en' | 'mr' | 'kn' }) {
+  const i18n = getI18n(locale);
   const year = new Date().getFullYear();
+
+  const contactLinks = [
+    {
+      label: 'Phone',
+      value: i18n.t('contact.phoneDisplay'),
+      href: i18n.t('contact.phoneHref'),
+      external: false,
+    },
+    // {
+    //   label: 'Email',
+    //   value: i18n.t('contact.email'),
+    //   href: i18n.t('contact.emailHref'),
+    //   external: false,
+    // },
+    {
+      label: 'Instagram',
+      value: i18n.t('contact.instagram'),
+      href: i18n.t('contact.instagramHref'),
+      external: true,
+    },
+    {
+      label: 'YouTube',
+      value: i18n.t('contact.youtube'),
+      href: i18n.t('contact.youtubeHref'),
+      external: true,
+    },
+  ];
 
   return (
     <footer id="contact" className="scroll-mt-28 border-t border-line py-20">
       <Container>
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
           <div>
-            <p className="text-xs uppercase tracking-[0.28em] text-champagne">Book Your Date</p>
+            <p className="text-xs uppercase tracking-[0.28em] text-champagne">{i18n.t('nav.bookYourDate')}</p>
             <h2 className="mt-4 max-w-2xl font-display text-4xl leading-tight text-charcoal md:text-5xl">
-              Reserve your bridal date with SK Makeover.
+              Reserve your bridal date with {i18n.t('brand.name')}.
             </h2>
             <p className="mt-5 max-w-xl text-base leading-8 text-charcoal/70">
-              For weddings, engagements, and pre-bridal bookings, SK Makeover keeps the contact path simple: one
+              For weddings, engagements, and pre-bridal bookings, {i18n.t('brand.name')} keeps the contact path simple: one
               clear phone line, a premium booking email, and the official domain at every touchpoint.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href={site.contact.phoneHref} variant="accent" className="px-7 py-3.5 text-base">
-                Call {site.contact.phoneDisplay}
+              <ButtonLink href={i18n.t('contact.phoneHref')} variant="accent" className="px-7 py-3.5 text-base">
+                Call {i18n.t('contact.phoneDisplay')}
               </ButtonLink>
-              {/* <ButtonLink href={site.contact.emailHref} variant="secondary" className="px-7 py-3.5 text-base">
+              {/* <ButtonLink href={i18n.t('contact.emailHref')} variant="secondary" className="px-7 py-3.5 text-base">
                 Email Bookings
               </ButtonLink> */}
             </div>
@@ -74,7 +75,7 @@ export function FooterContact() {
 
             {/* <div className="mt-5 rounded-[1.35rem] border border-champagne/20 bg-[linear-gradient(180deg,rgba(255,255,255,0.95),rgba(248,243,234,0.95))] p-5">
               <p className="text-xs uppercase tracking-[0.24em] text-champagne">Official domain</p>
-              <p className="mt-3 font-display text-2xl text-charcoal">{site.brand.domain}</p>
+              <p className="mt-3 font-display text-2xl text-charcoal">{i18n.t('brand.domain')}</p>
               <p className="mt-2 text-sm leading-7 text-charcoal/65">
                 Always book and communicate through the official domain to ensure a verified, direct connection with the studio.
               </p>
@@ -83,7 +84,7 @@ export function FooterContact() {
         </div>
 
         <div className="mt-10 flex flex-col gap-3 border-t border-line pt-6 text-sm text-charcoal/60 sm:flex-row sm:items-center sm:justify-between">
-          <p>Copyright {year} {site.brand.name}. Bridal artistry by {site.brand.artist}.</p>
+          <p>Copyright {year} {i18n.t('brand.name')}. Bridal artistry by {i18n.t('brand.artist')}.</p>
           <p>Appointments by request only.</p>
         </div>
       </Container>
