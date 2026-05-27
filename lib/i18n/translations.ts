@@ -191,13 +191,31 @@ export const en = {
         imageSrc: '/images/certificate-5.jpeg',
         alt: 'Certificate for Choosing Foundation Shade',
       },
+      {
+        title: 'Advanced Professional Training',
+        issuer: 'PK Institute',
+        imageSrc: '/images/certificate-6.jpeg',
+        alt: 'Advanced Professional Training Certificate',
+      },
+      {
+        title: 'Masterclass Certification',
+        issuer: 'PK Institute',
+        imageSrc: '/images/certificate-7.jpeg',
+        alt: 'Masterclass Certification',
+      },
+      {
+        title: 'Specialized Bridal Workshop',
+        issuer: 'PK Institute',
+        imageSrc: '/images/certificate-8.jpeg',
+        alt: 'Specialized Bridal Workshop Certificate',
+      },
     ] satisfies CertificationItem[],
   },
 } as const;
 
 export const mr = {
   brand: {
-    name: 'एस के मेकओव्हर',
+    name: 'SK Makeover',
     domain: 'skmakeover',
     artist: 'विद्या मालक',
   },
@@ -285,7 +303,7 @@ mr.packages[2].badge = 'पूर्वतयारी';
 
 export const kn = {
   brand: {
-    name: 'ಎಸ್ ಕೆ ಮೇಕ್ಓವರ್',
+    name: 'SK Makeover',
     domain: 'skmakeover',
     artist: 'ವಿದ್ಯಾ ಮಾಲಕ್',
   },

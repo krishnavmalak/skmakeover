@@ -18,10 +18,10 @@ export function SiteHeader({ locale = 'en' }: { locale?: SupportedLanguage }) {
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-[rgba(248,243,234,0.84)] backdrop-blur-xl">
       <Container>
-        <div className="flex items-center justify-between gap-4 py-4">
-          <a href="#home" className="group min-w-0">
-            <div className="flex items-center gap-3">
-              <div className="relative h-12 w-12 overflow-hidden rounded-full border border-champagne/30 shadow-soft transition-transform duration-300 group-hover:-translate-y-0.5">
+        <div className="flex items-center justify-between gap-2 py-3 md:gap-4 md:py-4">
+          <a href="#home" className="group min-w-0 flex-1">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <div className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full border border-champagne/30 shadow-soft transition-transform duration-300 group-hover:-translate-y-0.5 md:h-12 md:w-12">
                 <Image
                   src="/images/logo.jpeg"
                   alt={`${i18n.t('brand.name')} Logo`}
@@ -31,8 +31,8 @@ export function SiteHeader({ locale = 'en' }: { locale?: SupportedLanguage }) {
                 />
               </div>
               <div className="min-w-0">
-                <p className="truncate font-display text-xl text-charcoal md:text-2xl">{i18n.t('brand.name')}</p>
-                <p className="text-[0.68rem] uppercase tracking-[0.26em] text-champagne">{i18n.t('brand.artist')}</p>
+                <p className="truncate font-display text-[1.05rem] leading-tight text-charcoal sm:text-xl md:text-2xl">{i18n.t('brand.name')}</p>
+                <p className="truncate text-[0.55rem] uppercase tracking-[0.15em] text-champagne sm:text-[0.68rem] sm:tracking-[0.26em]">{i18n.t('brand.artist')}</p>
               </div>
             </div>
           </a>
@@ -45,27 +45,27 @@ export function SiteHeader({ locale = 'en' }: { locale?: SupportedLanguage }) {
             ))}
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className="flex shrink-0 items-center gap-2 sm:gap-3">
             <span className="hidden text-[0.68rem] uppercase tracking-[0.24em] text-charcoal/45 xl:inline">
               {i18n.t('brand.domain')}
             </span>
 
-            <div className="flex items-center gap-1 rounded-full border border-line bg-white/50 p-1">
+            <div className="flex items-center rounded-full border border-line bg-white/50 p-0.5 sm:gap-1 sm:p-1">
               <a
                 href="/"
-                className={['px-2.5 py-1 text-[0.7rem] rounded-full transition-colors', locale === 'en' ? 'bg-white text-charcoal shadow-sm' : 'text-charcoal/60 hover:text-charcoal'].join(' ')}
+                className={['px-2 py-1 text-[0.65rem] sm:px-2.5 sm:text-[0.7rem] rounded-full transition-colors', locale === 'en' ? 'bg-white text-charcoal shadow-sm' : 'text-charcoal/60 hover:text-charcoal'].join(' ')}
               >
                 EN
               </a>
               <a
                 href="/mr"
-                className={['px-2.5 py-1 text-[0.7rem] rounded-full transition-colors', locale === 'mr' ? 'bg-white text-charcoal shadow-sm' : 'text-charcoal/60 hover:text-charcoal'].join(' ')}
+                className={['px-2 py-1 text-[0.65rem] sm:px-2.5 sm:text-[0.7rem] rounded-full transition-colors', locale === 'mr' ? 'bg-white text-charcoal shadow-sm' : 'text-charcoal/60 hover:text-charcoal'].join(' ')}
               >
                 MR
               </a>
               <a
                 href="/kn"
-                className={['px-2.5 py-1 text-[0.7rem] rounded-full transition-colors', locale === 'kn' ? 'bg-white text-charcoal shadow-sm' : 'text-charcoal/60 hover:text-charcoal'].join(' ')}
+                className={['px-2 py-1 text-[0.65rem] sm:px-2.5 sm:text-[0.7rem] rounded-full transition-colors', locale === 'kn' ? 'bg-white text-charcoal shadow-sm' : 'text-charcoal/60 hover:text-charcoal'].join(' ')}
               >
                 KN
               </a>
