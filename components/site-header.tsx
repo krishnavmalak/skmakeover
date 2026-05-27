@@ -9,6 +9,7 @@ export function SiteHeader({ locale = 'en' }: { locale?: SupportedLanguage }) {
   const navItems = [
     { label: i18n.t('nav.home'), href: '#home' },
     { label: i18n.t('nav.about'), href: '#about' },
+    { label: i18n.t('nav.certifications'), href: '#certifications' },
     { label: i18n.t('nav.portfolio'), href: '#portfolio' },
     // { label: i18n.t('nav.packages'), href: '#packages' },
     { label: i18n.t('nav.contact'), href: '#contact' },

@@ -3,6 +3,7 @@ import { FooterContact } from '@/components/footer-contact';
 import { HeroSection } from '@/components/hero-section';
 import { PortfolioGallery } from '@/components/portfolio-gallery';
 import { ServicesPricing } from '@/components/services-pricing';
+import { CertificationsSection } from '@/components/certifications-section';
 import { SiteHeader } from '@/components/site-header';
 import type { SupportedLanguage } from '@/lib/i18n/index';
 
@@ -17,6 +18,7 @@ export function HomePage({ locale }: { locale: SupportedLanguage }) {
         />
         <HeroSection locale={locale} />
         <AboutArtist locale={locale} />
+        <CertificationsSection locale={locale} />
         <PortfolioGallery locale={locale} />
         {/* <ServicesPricing locale={locale} /> */}
         <FooterContact locale={locale} />

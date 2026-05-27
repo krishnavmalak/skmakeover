@@ -12,6 +12,13 @@ export type PortfolioItem = {
   mediaAspectClassName?: string;
 };
 
+export type CertificationItem = {
+  title: string;
+  issuer: string;
+  imageSrc: string;
+  alt: string;
+};
+
 export type PackageItem = {
   name: string;
   priceLabel: string;
@@ -33,6 +40,7 @@ export const en = {
     about: 'About',
     portfolio: 'Portfolio',
     packages: 'Packages',
+    certifications: 'Certifications',
     contact: 'Contact',
     bookYourDate: 'Book Your Date',
     viewPortfolio: 'View Portfolio',
@@ -155,6 +163,36 @@ export const en = {
       badge: 'Preparation',
     },
   ] satisfies PackageItem[],
+  certifications: {
+    title: 'Professional Certifications',
+    description: 'Recognized expertise in advanced makeup and skin treatments.',
+    items: [
+      {
+        title: '{LIVE} No Makeup Makeup Look',
+        issuer: 'PK Institute',
+        imageSrc: '/images/certificate-1.jpeg',
+        alt: 'Certificate for No Makeup Makeup Look',
+      },
+      {
+        title: '[LEVEL-1] Basic to Pro: Transform Your Makeup Skills',
+        issuer: 'PK Institute',
+        imageSrc: '/images/certificate-2.jpeg',
+        alt: 'Certificate for Basic to Pro Makeup Skills',
+      },
+      {
+        title: '[LEVEL-3] Become a Skin Specialist: 4-Day Training!',
+        issuer: 'PK Institute',
+        imageSrc: '/images/certificate-3.jpeg',
+        alt: 'Certificate for Skin Specialist Training',
+      },
+      {
+        title: '{LIVE} How to Choose Your Foundation Shade',
+        issuer: 'PK Institute',
+        imageSrc: '/images/certificate-5.jpeg',
+        alt: 'Certificate for Choosing Foundation Shade',
+      },
+    ] satisfies CertificationItem[],
+  },
 } as const;
 
 export const mr = {
@@ -168,6 +206,7 @@ export const mr = {
     about: 'आमच्याबद्दल',
     portfolio: 'पोर्टफोलिओ',
     packages: 'पॅकेजेस',
+    certifications: 'प्रमाणपत्रे',
     contact: 'संपर्क',
     bookYourDate: 'बुकिंग करा',
     viewPortfolio: 'पोर्टफोलिओ पहा',
@@ -200,6 +239,11 @@ export const mr = {
     ...pkg,
     priceLabel: 'पासून सुरू',
   })),
+  certifications: {
+    title: 'व्यावसायिक प्रमाणपत्रे',
+    description: 'प्रगत मेकअप आणि त्वचा उपचारांमध्ये मान्यताप्राप्त कौशल्य.',
+    items: en.certifications.items,
+  },
 };
 
 // Override specific portfolio and package texts
@@ -250,6 +294,7 @@ export const kn = {
     about: 'ನಮ್ಮ ಬಗ್ಗೆ',
     portfolio: 'ಪೋರ್ಟ್ಫೋಲಿಯೋ',
     packages: 'ಪ್ಯಾಕೇಜ್‌ಗಳು',
+    certifications: 'ಪ್ರಮಾಣಪತ್ರಗಳು',
     contact: 'ಸಂಪರ್ಕಿಸಿ',
     bookYourDate: 'ಬುಕಿಂಗ್ ಮಾಡಿ',
     viewPortfolio: 'ಪೋರ್ಟ್ಫೋಲಿಯೋ ವೀಕ್ಷಿಸಿ',
@@ -282,6 +327,11 @@ export const kn = {
     ...pkg,
     priceLabel: 'ಇಂದ ಪ್ರಾರಂಭ',
   })),
+  certifications: {
+    title: 'ವೃತ್ತಿಪರ ಪ್ರಮಾಣಪತ್ರಗಳು',
+    description: 'ಸುಧಾರಿತ ಮೇಕಪ್ ಮತ್ತು ತ್ವಚೆ ಚಿಕಿತ್ಸೆಗಳಲ್ಲಿ ಮಾನ್ಯತೆ ಪಡೆದ ಪರಿಣತಿ.',
+    items: en.certifications.items,
+  },
 };
 
 // Override specific portfolio and package texts

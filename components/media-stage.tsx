@@ -18,6 +18,7 @@ type MediaStageProps = {
   showZoomControls?: boolean;
   showReplayControl?: boolean;
   showIframeChromeMask?: boolean;
+  zoomOnClick?: boolean;
   children?: ReactNode;
 };
 
@@ -43,6 +44,7 @@ export function MediaStage({
   showZoomControls = true,
   showReplayControl = true,
   showIframeChromeMask = false,
+  zoomOnClick = false,
   children,
 }: MediaStageProps) {
   const [zoom, setZoom] = useState(1);
@@ -81,6 +83,11 @@ export function MediaStage({
     }
   }
 
+  function handleToggleZoom() {
+    if (!zoomOnClick) return;
+    setZoom((current) => (current > MIN_ZOOM ? MIN_ZOOM : MAX_ZOOM));
+  }
+
   const zoomStyle = {
     transform: `scale(${zoom})`,
     transformOrigin: 'center center',
@@ -89,7 +96,11 @@ export function MediaStage({
   return (
     <div className={['relative overflow-hidden', aspectClassName, frameClassName].filter(Boolean).join(' ')}>
       <div className="absolute inset-0">
-        <div className={['relative h-full w-full transition-transform duration-300 ease-out', mediaClassName].filter(Boolean).join(' ')} style={zoomStyle}>
+        <div 
+          className={['relative h-full w-full transition-transform duration-300 ease-out', zoomOnClick ? 'cursor-zoom-in' : '', zoom > MIN_ZOOM && zoomOnClick ? '!cursor-zoom-out' : '', mediaClassName].filter(Boolean).join(' ')} 
+          style={zoomStyle}
+          onClick={zoomOnClick ? handleToggleZoom : undefined}
+        >
           {kind === 'image' && webpBase ? (
             <picture className="block h-full w-full">
               <source
